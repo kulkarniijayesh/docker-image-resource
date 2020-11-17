@@ -293,6 +293,8 @@ fi
 
 digest="$(grep 'digest' push-output | awk '{print $3}')"
 
+log_in "$username" "$password" "$registry"
+
 if [ "$need_tag_as_latest" = "true" ] && [ "${tag_name}" != "latest"  ]; then
   docker tag "${repository}:${tag_name}" "${repository}:latest"
   docker push "${repository}:latest"
