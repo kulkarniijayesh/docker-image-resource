@@ -52,7 +52,7 @@ start_docker \
 	"${max_concurrent_uploads}" \
 	"$insecure_registries" \
 	"$registry_mirror"
-log_in "$username" "$password" "$registry"
+#log_in "$username" "$password" "$registry"
 
 echo "Custom docker-login should be added here..."
 
