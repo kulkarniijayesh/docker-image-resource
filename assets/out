@@ -70,10 +70,12 @@ build_args_file=$(jq -r '.params.build_args_file // ""' < $payload)
 labels=$(jq -r '.params.labels // {}' < $payload)
 labels_file=$(jq -r '.params.labels_file // ""' < $payload)
 dockerhub_username=$(jq -r '.params.dockerhub_username // ""' < $payload)
+dockerhub_password=$(jq -r '.params.dockerhub_password // ""' < $payload)
 
 tag_name=""
 
 echo "Using $dockerhub_username for performing docker login"
+docker login -u $dockerhub_username -p $dockerhub_password
 
 if [ -n "$tag_params" ]; then
   if [ ! -f "$tag_params" ]; then
