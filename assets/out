@@ -54,6 +54,8 @@ start_docker \
 	"$registry_mirror"
 log_in "$username" "$password" "$registry"
 
+echo "Custom docker-login should be added here..."
+
 tag_source=$(jq -r '.source.tag // "latest"' < $payload)
 tag_params=$(jq -r '.params.tag_file // ""' < $payload)
 # for backwards compatibility, check `tag` if `tag_file` is empty
