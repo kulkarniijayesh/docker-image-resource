@@ -293,7 +293,8 @@ fi
 
 digest="$(grep 'digest' push-output | awk '{print $3}')"
 
-rm ~/.docker/config.json
+#rm ~/.docker/config.json
+echo "Performing login before pushing image to repo"
 log_in "$username" "$password" "$registry"
 
 if [ "$need_tag_as_latest" = "true" ] && [ "${tag_name}" != "latest"  ]; then
