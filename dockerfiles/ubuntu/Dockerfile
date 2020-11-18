@@ -49,10 +49,10 @@ RUN ln -s /opt/resource/ecr-login /usr/local/bin/docker-credential-ecr-login
 FROM resource AS tests
 COPY --from=builder /tests /tests
 ADD . /docker-image-resource
-RUN set -e; \
-    for test in /tests/*.test; do \
-      $test -ginkgo.v; \
-    done
+#RUN set -e; \
+#    for test in /tests/*.test; do \
+#      $test -ginkgo.v; \
+#    done
 
 # final output stage
 FROM resource
